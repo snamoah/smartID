@@ -1,0 +1,35 @@
+<%= form_for @user do |f| %>
+  <p>
+    <%= f.label :Name %><br>
+    <%= f.text_field :firstname, :placeholder=>"first name"%><%= f.text_field :lastname, :placeholder=>"last name"%>
+  </p>
+
+  <p>
+    <%= f.label :Username %><br>
+    <%= f.text_field :username %>
+  </p>
+  <p>
+    <%= f.label :Password %><br>
+    <%= f.password_field :password %>
+  </p>
+
+  <p>
+    <%= f.label :Confirm_Password %><br>
+    <%= f.password_field :password_confirmation %>
+  </p>
+
+  <p>
+    <%= f.label :Email %><br>
+    <%= f.email_field :email %>
+  </p>
+
+  <p>
+  <%= f.label :Gender %><br>
+  <%= f.select :gender, options_for_select(%w[Male Female Other]) %>
+</p>
+
+<p>
+<%= f.submit "Sign up" %>
+</p>
+
+<% end %>
