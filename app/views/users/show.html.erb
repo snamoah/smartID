@@ -1,0 +1,16 @@
+<h1>Credentials</h1>
+
+<%= link_to "Add Credential", new_user_credential_path(@user) %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Number</th>
+  </tr>
+<% @credentials.each do |c| %>
+  <tr>
+    <td><%= c.name %></td>
+    <td><%= c.number %></td>
+  </tr>
+<% end %>
+</table>

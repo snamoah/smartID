@@ -1,0 +1,9 @@
+<h1>SmartID Login</h1>
+
+<%= form_tag user_validate_path, :method => "post" do %>
+  Username: <%=  text_field_tag :username  %><br>
+  Pasword: <%= password_field_tag :password  %><br>
+  <%= submit_tag "Login" %>
+<% end %>
+
+<p><%= link_to "Sign up", new_user_path %></p>
