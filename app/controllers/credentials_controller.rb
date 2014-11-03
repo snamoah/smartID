@@ -1,17 +1,20 @@
 class CredentialsController < ApplicationController
-  def index
-    @credentials = Credential.where params[:user_id]
-
-    if @credentials.blank?
-      redirect_to new_user_credential_path(params[:user_id])
-    end
-  end
-
+ 
   def new
-    @user = Credential.find_by(params[:user_id]).user
+    @user = User.find(params[:user_id])
+    @credential = @user.credentials.new
   end
 
   def create
-    render plain: "Created"
+    @user = User.find(params[:user_id])
+    @credential = @user.credentials.new
+    @credential.name = params[:name]
+    @credential.number = params[:number]
+
+    if @credential.save
+      redirect_to user_path(@user)
+    else
+      render 'new'
+    end
   end
 end

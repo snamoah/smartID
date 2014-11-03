@@ -19,8 +19,18 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def show
+    @user =  User.find(params[:id])
+    @credentials =@user.credentials
+  end
+
   def validate
-    render plain: params[:username]
+    @user = User.find_by username: params[:username], password: params[:password]
+    if @user.blank?
+      redirect_to root_url
+    else
+      redirect_to user_path(@user)
+    end
   end
 
   private 
