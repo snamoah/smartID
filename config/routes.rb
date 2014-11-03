@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :users do
+    resources :credentials
+  end
+
+  post 'users/validate' => 'users#validate', :as => 'user_validate'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+   root 'users#login'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
