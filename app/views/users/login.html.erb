@@ -1,9 +1,14 @@
-<h1>SmartID Login</h1>
 
-<%= form_tag user_validate_path, :method => "post" do %>
-  Username: <%=  text_field_tag :username  %><br>
-  Pasword: <%= password_field_tag :password  %><br>
-  <%= submit_tag "Login" %>
+  <div class="wrapper">
+
+<%= form_tag user_validate_path, :method => "post", :class => "form-signin" do %>
+	<h2 class="form-signin-heading">Please login</h2>
+      <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
+      <input type="password" class="form-control" name="password" placeholder="Password" required=""/>      
+      <label class="checkbox">
+        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+      </label>
+  <%= submit_tag "Login", :class => "btn btn-primary btn-lg	btn-block" %>
+  <p><%= link_to "Sign up", new_user_path %></p>
 <% end %>
-
-<p><%= link_to "Sign up", new_user_path %></p>
+</div>
