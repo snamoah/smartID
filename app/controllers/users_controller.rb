@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  layout 'dasboard', only: :show
   def new
     @user = User.new
   end
