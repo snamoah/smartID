@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
   def show
     @user =  User.find(params[:id])
-    @credentials =@user.credentials
+    @credentials = @user.credentials
   end
 
   def validate

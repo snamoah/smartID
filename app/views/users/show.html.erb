@@ -20,6 +20,8 @@
   <tr>
     <td><%= c.name %></td>
     <td><%= c.number %></td>
+    <td class="text-right"><%= button_tag "Edit", class: 'btn btn-primary' %>
+    <%= button_tag "Delete", class: 'btn btn-danger' %></td>
   </tr>
 <% end %>
 </tbody>
