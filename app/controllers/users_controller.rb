@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(firstname: params[:firstname], lastname: params[:lastname], username: params[:username], password: params[:password], gender: params[:gender], email: params[:email])
 
     if @user.save
       redirect_to new_user_credential_path(@user)
