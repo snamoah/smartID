@@ -21,7 +21,6 @@ class UsersController < ApplicationController
 
   def show
     @user =  User.find(params[:id])
-    @credentials = @user.credentials
   end
 
   def validate
@@ -29,7 +28,7 @@ class UsersController < ApplicationController
     if @user.blank?
       redirect_to root_url
     else
-      redirect_to user_path(@user)
+      redirect_to user_credentials_path(@user)
     end
   end
 
