@@ -41,6 +41,13 @@ class CredentialsController < ApplicationController
   end
 
 
+  def destroy
+    @user = User.find(params[:user_id])
+    @user.credentials.find(params[:id]).destroy
+
+    redirect_to user_credentials_path(@user)
+  end
+
   private
   def credential_params
     params.require(:credential).permit(:name, :number)
